@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WORK\\CODE\\ServicesDomain\\MCService.Domain.csproj",
+      "projectUniqueName": "D:\\GIT\\MCService\\ServicesDomain\\MCService.Domain.csproj",
       "projectName": "MCService.Domain",
-      "projectPath": "D:\\WORK\\CODE\\ServicesDomain\\MCService.Domain.csproj",
+      "projectPath": "D:\\GIT\\MCService\\ServicesDomain\\MCService.Domain.csproj",
       "packagesPath": "C:\\Users\\Вика\\.nuget\\packages\\",
-      "outputPath": "D:\\WORK\\CODE\\ServicesDomain\\obj\\",
+      "outputPath": "D:\\GIT\\MCService\\ServicesDomain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Программы\\VS2\\NuGetPackages"

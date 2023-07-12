@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "04NeV8ERz5v3X2f+onaI/dnPVcOYWB5/WEZyNiXE2WJjNC/+pbOku1JZXs2OuxXnY2ckLpuXAPw9FpUFGSo81Q==",
+  "dgSpecHash": "EPVXLmEY/jwMCFZgfucQaKH1i7YbK+Puy7WBsjunSSEG7d89578Cun0UUOaff861qq1x1ubWI62NKlW9AzWypg==",
   "success": true,
-  "projectFilePath": "D:\\WORK\\CODE\\MCService.Services\\MCService.Services.csproj",
+  "projectFilePath": "D:\\GIT\\MCService\\MCService.Services\\MCService.Services.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

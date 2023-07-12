@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wRs3WYNw5n/8xUNZv1HZL8Sk+2NM8htSrp3vh7Varzn8qMbsjhegcKYKcBjJIjxq8EpTLO7ZgP+8d0zjMM0KZA==",
+  "dgSpecHash": "Ayb2fxixVys11GWj16uPLfPblAgponQrWCb/F2LOJNjytkIsa3eUz7QClOeatCOH6tQF3oj5mDw9ZQQGqQLX7g==",
   "success": true,
-  "projectFilePath": "D:\\WORK\\CODE\\WebMC\\MCService.Web.csproj",
+  "projectFilePath": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Вика\\.nuget\\packages\\microsoft.aspnet.webapi.client\\4.0.20710\\microsoft.aspnet.webapi.client.4.0.20710.nupkg.sha512",
     "C:\\Users\\Вика\\.nuget\\packages\\microsoft.aspnet.webapi.core\\4.0.20710\\microsoft.aspnet.webapi.core.4.0.20710.nupkg.sha512",

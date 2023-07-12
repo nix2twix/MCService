@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "IAL5qxpM/W2WF7XAYOMRBnuAjL9pTGC08x7Lo+zh0ik=",
-  "Source": "WebMC",
-  "BasePath": "_content/WebMC",
+  "Hash": "q/33+tcLT992mGD+jspzCScyRXq7v0DfEz0CBGe3EdU=",
+  "Source": "MCService.Web",
+  "BasePath": "_content/MCService.Web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

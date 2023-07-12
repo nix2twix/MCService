@@ -710,11 +710,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WORK\\CODE\\WebMC\\MCService.Web.csproj",
+      "projectUniqueName": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
       "projectName": "MCService.Web",
-      "projectPath": "D:\\WORK\\CODE\\WebMC\\MCService.Web.csproj",
+      "projectPath": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
       "packagesPath": "C:\\Users\\Вика\\.nuget\\packages\\",
-      "outputPath": "D:\\WORK\\CODE\\WebMC\\obj\\",
+      "outputPath": "D:\\GIT\\MCService\\WebMC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Программы\\VS2\\NuGetPackages"
