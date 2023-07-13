@@ -1,0 +1,5 @@
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.csproj.AssemblyReference.cache
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.AssemblyInfoInputs.cache
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.AssemblyInfo.cs
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.csproj.CoreCompileInputs.cache

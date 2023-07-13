@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MCService.Services
 {
+    //Сервис обработки пользовательских данных (авторизация)
     internal class UserService
     {
     }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCService.Web", "MCService.Web.csproj", "{60EACE32-5A0C-473A-AFE4-4004518D40D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCService.Web", "MCService.Web.csproj", "{60EACE32-5A0C-473A-AFE4-4004518D40D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCService.Domain", "..\ServicesDomain\MCService.Domain.csproj", "{C3ADCFF8-3373-4A0C-940B-421481C13A12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCService.Services", "..\MCService.Services\MCService.Services.csproj", "{13D834DE-FB3F-470B-A570-01D919B4082D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCService.Services", "..\MCService.Services\MCService.Services.csproj", "{13D834DE-FB3F-470B-A570-01D919B4082D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{385AE3F8-80DB-4B81-A844-D5BD1463DFC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		{60EACE32-5A0C-473A-AFE4-4004518D40D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60EACE32-5A0C-473A-AFE4-4004518D40D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60EACE32-5A0C-473A-AFE4-4004518D40D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3ADCFF8-3373-4A0C-940B-421481C13A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3ADCFF8-3373-4A0C-940B-421481C13A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3ADCFF8-3373-4A0C-940B-421481C13A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3ADCFF8-3373-4A0C-940B-421481C13A12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13D834DE-FB3F-470B-A570-01D919B4082D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13D834DE-FB3F-470B-A570-01D919B4082D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13D834DE-FB3F-470B-A570-01D919B4082D}.Release|Any CPU.ActiveCfg = Release|Any CPU

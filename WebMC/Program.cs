@@ -1,3 +1,7 @@
+
+
+/* 
+ 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,6 +27,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+//app.Run(HandleRequst);
 
+//app.Run();
 
+async Task HandleRequst(HttpContext context)
+{
+    await context.Response.WriteAsync("Hello METANIT.COM 2");
+}
+
+ 
+ */

@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MCService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebMC.Controllers
+namespace WebMC
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,15 +12,8 @@ namespace WebMC.Controllers
         [HttpGet(Name = "GetServiceByID")]
         public ActionResult Get(int id)
         {
-            return Ok(new ServiceModel
-            {
-                Id = 1,
-                Name = "Уборка",
-                MinCount = 1,
-                MaxCount = 1,
-                Measurement = "шт",
-                MCId = 1
-            });
+            return Ok();
         }
+
     }
 }
