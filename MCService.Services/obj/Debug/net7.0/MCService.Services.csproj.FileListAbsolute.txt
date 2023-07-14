@@ -3,3 +3,10 @@ D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.Generate
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.AssemblyInfoInputs.cache
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.AssemblyInfo.cs
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.csproj.CoreCompileInputs.cache
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Services.deps.json
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Services.dll
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Services.pdb
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.dll
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\refint\MCService.Services.dll
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.pdb
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\ref\MCService.Services.dll
