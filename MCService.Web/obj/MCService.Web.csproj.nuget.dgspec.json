@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj": {}
+    "D:\\GIT\\MCService\\MCService.Web\\MCService.Web.csproj": {}
   },
   "projects": {
     "D:\\GIT\\MCService\\MCService.Services\\MCService.Services.csproj": {
@@ -73,14 +73,14 @@
         }
       }
     },
-    "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj": {
+    "D:\\GIT\\MCService\\MCService.Web\\MCService.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
+        "projectUniqueName": "D:\\GIT\\MCService\\MCService.Web\\MCService.Web.csproj",
         "projectName": "MCService.Web",
-        "projectPath": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
+        "projectPath": "D:\\GIT\\MCService\\MCService.Web\\MCService.Web.csproj",
         "packagesPath": "C:\\Users\\Вика\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\MCService\\WebMC\\obj\\",
+        "outputPath": "D:\\GIT\\MCService\\MCService.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Программы\\VS2\\NuGetPackages"

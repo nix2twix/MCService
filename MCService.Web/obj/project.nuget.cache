@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qe3UG7AQWvB57vcd+MrIUvZ+Y4VrSYGpHijSZ14yA4sQIjHDyeKU791QWOA8ZaCPYQXb7/ozgEco4eMl6EVpGg==",
+  "dgSpecHash": "chY7ffx2I8hHJ76b8yHxf3XfQpZSI0aMn5wC6W8o9glVXmT/SUjrwpJ5xOutIieskviHz3WRV/EZRvVSqTfKLw==",
   "success": true,
-  "projectFilePath": "D:\\GIT\\MCService\\WebMC\\MCService.Web.csproj",
+  "projectFilePath": "D:\\GIT\\MCService\\MCService.Web\\MCService.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Вика\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Вика\\.nuget\\packages\\azure.identity\\1.8.0\\azure.identity.1.8.0.nupkg.sha512",

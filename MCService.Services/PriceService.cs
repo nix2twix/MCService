@@ -23,6 +23,12 @@
                  + $"idService = {serviceID}\nWHERE id={id}";
         }
 
+        public string GetPriceByID(int id)
+        {
+            return "SELECT price, ifPriceOnRequest, idLocation, idService "
+                + $"FROM Prices WHERE id = {id}";
+        }
+
         public string GetPriceByCode(int codeFias, int idService) 
         {
 
