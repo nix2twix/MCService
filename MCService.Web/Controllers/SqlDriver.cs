@@ -28,5 +28,10 @@ namespace MCService.Web.Controllers
             SqlCommand command = new SqlCommand(query, sqlConnection);
             return command.ExecuteReader();
         }
+
+        public void Close()
+        {
+            sqlConnection.Close();
+        }
     }
 }

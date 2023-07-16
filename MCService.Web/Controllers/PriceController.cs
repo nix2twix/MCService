@@ -11,18 +11,22 @@ namespace MCService.Web.Controllers
     {
         SqlDriver sqlDriver = new SqlDriver();
         PriceService priceService = new PriceService();
+        WorkService workService = new WorkService();
 
         [HttpGet("{id:int}", Name = "GetPriceByID")]
-        public ActionResult GetServiceByID(int id)
+        public ActionResult GetPriceByID(int id)
         {
             sqlDriver.Open();
             var priceInfo = sqlDriver.ExecReader(priceService.GetPriceByID(id));
             priceInfo.Read();
 
-            return Ok(new PriceModel 
+            var serviceInfo = sqlDriver.ExecReader(workService.GetServiceByID(id));
+            serviceInfo.Read();
+
+            return Ok(new PriceModel
             {
                 Id = id,
-                Name = priceInfo["name"].ToString(),
+                Name = serviceInfo["name"].ToString(),
                 Price = (int)priceInfo[0],
                 isPriceOnRequest = (bool)priceInfo[1],
                 LocationID = (int)priceInfo[2],
@@ -30,23 +34,44 @@ namespace MCService.Web.Controllers
             });
         }
 
-        [HttpPost(Name = "AddNewPrice")]
-        public ActionResult AddNewPrice(int price, bool isPriceOnRequest, int locationID, int serviceID)
+        [HttpGet("{id:int}/{name}", Name = "GetPriceByCode")]
+        public ActionResult GetPriceByCode(int houseFIASCode, int idService)
+        {
+            sqlDriver.Open();
+            var priceInfo = sqlDriver.ExecReader(priceService.GetPriceByCode(houseFIASCode, idService));
+            priceInfo.Read();
+
+            var serviceInfo = sqlDriver.ExecReader(workService.GetServiceByID(idService));
+            serviceInfo.Read();
+
+            return Ok(new PriceModel
+            {
+                Id = houseFIASCode,
+                Name = serviceInfo["name"].ToString(),
+                Price = (int) priceInfo[0],
+                isPriceOnRequest = (bool)priceInfo[1],
+                LocationID = (int)priceInfo[2],
+                ServiceID = idService
+            });
+        }
+
+[HttpPost(Name = "AddNewPrice")]
+        public ActionResult AddNewPrice(int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
         {
             sqlDriver.Open();
 
             return Ok(sqlDriver.ExecNonQuery(
-                priceService.AddNewPrice(price, isPriceOnRequest, locationID, serviceID))
+                priceService.AddNewPrice(price, isPriceOnRequest, locationID, serviceID, name))
                 + " prices was added successfully!");
         }
 
         [HttpPut(Name = "UpdatePriiceByID")]
-        public ActionResult UpdatePriiceByID(int id, int price, bool isPriceOnRequest, int locationID, int serviceID)
+        public ActionResult UpdatePriiceByID(int id, int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
         {
             sqlDriver.Open();
 
             return Ok(sqlDriver.ExecNonQuery(
-                priceService.ChangePriceByID(id, price, isPriceOnRequest, locationID, serviceID))
+                priceService.ChangePriceByID(id, price, isPriceOnRequest, locationID, serviceID, name))
                 + " services was updated successfully!");
         }
 
@@ -58,5 +83,6 @@ namespace MCService.Web.Controllers
             return Ok(sqlDriver.ExecNonQuery(priceService.DeletePriceByID(id))
                 + " prices was deleted successfully!");
         }
+
     }
 }

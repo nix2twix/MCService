@@ -2,7 +2,7 @@
 {
     public class LocationModel : BaseModel
     {
-        public string CompanyID { get; set; }
+        public int CompanyID { get; set; }
 
     }
 }

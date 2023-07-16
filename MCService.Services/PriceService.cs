@@ -3,11 +3,11 @@
     //Сервис для работы со списком цен
     public class PriceService 
     {
-        public string AddNewPrice(int price, bool isPriceOnRequest, int locationID, int serviceID)
+        public string AddNewPrice(int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
         {
-            return "INSERT INTO Prices (price, ifPriceOnRequest, idLocation, idService) "
+            return "INSERT INTO Prices (price, ifPriceOnRequest, idLocation, idService, name) "
                 + $"VALUES ('{price}', '{isPriceOnRequest}', '{locationID}', "
-                + $"'{serviceID}')";
+                + $"'{serviceID}' + N'{name}')";
         }
 
         public string DeletePriceByID(int id)
@@ -15,12 +15,14 @@
             return $"DELETE FROM Prices WHERE id={id}";
         }
 
-        public string ChangePriceByID(int id, int price, bool isPriceOnRequest, int locationID, int serviceID)
+        public string ChangePriceByID(int id, int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
         {
             return "UPDATE Prices\n"
                  + $"SET price = {price},\nifPriceOnRequest = {isPriceOnRequest},"
                  + $"\nidLocation = {locationID},\n"
-                 + $"idService = {serviceID}\nWHERE id={id}";
+                 + $"idService = {serviceID},\n"
+                 + $"name = N'{name}'\n"
+                 + $"WHERE id={id}";
         }
 
         public string GetPriceByID(int id)
@@ -33,7 +35,8 @@
         {
 
             return "SELECT price FROM Prices\n"
-                + $"WHERE idLocation = {codeFias} AND idService = {idService}";
+                + $"WHERE idLocation = {codeFias} "
+                + $"AND idService = {idService}";
         }
     }
 }
