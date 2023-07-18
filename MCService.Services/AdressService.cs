@@ -1,65 +1,132 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Diagnostics;
+﻿using MCService.Models;
+using MCService.Database;
 
 namespace MCService.Services
 {
     public class AdressService
     {
-        public string AddNewAdress(int idLocation, int houseFIASCode, string streetFIASCode, string cityFIASCode, string regionFIASCode)
+        private readonly SqlDriver sqlDriver;
+        public AdressService(SqlDriver sqlDriver = null)
         {
-
-            return "INSERT INTO Adresses "
-                    + "(idLocation, streetFIASCode, cityFIASCode, regionFIASCode, houseFIASCode) "
-                    + $"VALUES ({idLocation}, N'{streetFIASCode}', N'{cityFIASCode}', "
-                    + $"N'{regionFIASCode}', {houseFIASCode})";
+            this.sqlDriver = sqlDriver;
+            this.sqlDriver.Open();
+        }
+        ~AdressService() 
+        {
+            sqlDriver.Close();
         }
 
-        public string AddNewAdress(int idLocation, string streetFIASCode, string cityFIASCode, string regionFIASCode)
+        public string AddNewAdress(AdressModel model)
         {
-
-            return "INSERT INTO Adresses "
-                    + "(idLocation, streetFIASCode, cityFIASCode, regionFIASCode, houseFIASCode) "
-                    + $"VALUES ({idLocation}, N'{streetFIASCode}', N'{cityFIASCode}', "
-                    + $"N'{regionFIASCode}', NULL)";
+            return sqlDriver.ExecNonQuery("INSERT INTO Adresses "
+            + "(idLocation, streetFIASCode, cityFIASCode, regionFIASCode, houseFIASCode) "
+            + $"VALUES ({model.LocationID}, N'{model.fullFIASCode.StreetFIASCode}', N'{model.fullFIASCode.CityFIASCode}', "
+            + $"N'{model.fullFIASCode.RegionFIASCode}', {model.fullFIASCode.HouseFIASCode})")
+                + " adresses was added successfully!";
         }
 
-        public string AddNewAdress(int idLocation, string cityFIASCode, string regionFIASCode)
+        public bool TryAddNewAdress(int idMC, AdressModel model)
         {
+            var locationsIDList = new List<int>();
 
-            return "INSERT INTO Adresses "
-                    + "(idLocation, streetFIASCode, cityFIASCode, regionFIASCode, houseFIASCode) "
-                    + $"VALUES ({idLocation}, NULL, N'{cityFIASCode}', "
-                    + $"N'{regionFIASCode}', NULL)";
-        }
+            using (var reader = sqlDriver.ExecReader
+                ($"SELECT id FROM Locations WHERE idMC = {idMC}"))
+            {
+                while (reader.Read())
+                {
+                    locationsIDList.Add((int)reader[0]);
+                }
+            }
 
-        public string AddNewAdress(int idLocation, string regionFIASCode)
-        {
+            var adressList = new List<AdressModel>();
 
-            return "INSERT INTO Adresses "
-                    + "(idLocation, streetFIASCode, cityFIASCode, regionFIASCode, houseFIASCode) "
-                    + $"VALUES ({idLocation}, NULL, NULL, "
-                    + $"N'{regionFIASCode}', NULL)";
+            foreach (var id in locationsIDList)
+            {
+                adressList.Clear();
+
+                using (var reader = sqlDriver.ExecReader($"SELECT * FROM Adresses " 
+                    + $"WHERE idLocation = {id}"))
+                {
+                    while (reader.Read())
+                    {
+                        int house = -1;
+
+                        if (reader["houseFIASCode"] != DBNull.Value)
+                            house = (int)reader["houseFIASCode"];
+
+                        adressList.Add(new AdressModel()
+                        {
+                            LocationID = (int)reader["idLocation"],
+                            fullFIASCode = new FIASCode
+                            {
+                                RegionFIASCode = reader["regionFIASCode"].ToString(),
+                                CityFIASCode = reader["cityFIASCode"].ToString(),
+                                StreetFIASCode = reader["streetFIASCode"].ToString(),
+                                HouseFIASCode = house
+                            }
+                        });
+                    }
+                }
+
+                foreach (var adress in adressList)
+                {
+                    if (model.fullFIASCode.RegionFIASCode
+                            == adress.fullFIASCode.RegionFIASCode)
+                        return false;
+
+                    if (model.fullFIASCode.CityFIASCode != string.Empty
+                        && model.fullFIASCode.CityFIASCode
+                    == adress.fullFIASCode.CityFIASCode)
+                        return false;
+
+                    if (model.fullFIASCode.StreetFIASCode != string.Empty
+                        && model.fullFIASCode.StreetFIASCode
+                    == adress.fullFIASCode.StreetFIASCode)
+                        return false;
+
+                    if (model.fullFIASCode.HouseFIASCode != -1
+                        && model.fullFIASCode.HouseFIASCode
+                    == adress.fullFIASCode.HouseFIASCode)
+                        return false;
+                }
+            }
+            return true;
         }
 
         public string DeleteAdressByID(int id)
         {
-            return $"DELETE FROM Adresses WHERE id = {id}";
+            return sqlDriver.ExecNonQuery($"DELETE FROM Adresses WHERE id = {id}")
+                + " adresses was deleted successfully!";
         }
-        public string GetAdressByID(int id)
+        public AdressModel GetAdressByID(int id)
         {
-            return $"SELECT * FROM Adresses WHERE id = {id}";
+            var adressInfo = sqlDriver.ExecReader($"SELECT * FROM Adresses WHERE id = {id}");
+            adressInfo.Read();
+
+            return new AdressModel()
+            {
+                LocationID = (int)adressInfo["idLocation"],
+                fullFIASCode = new FIASCode
+                {
+                    RegionFIASCode = adressInfo["regionFIASCode"].ToString(),
+                    CityFIASCode = adressInfo["cityFIASCode"].ToString(),
+                    StreetFIASCode = adressInfo["streetFIASCode"].ToString(),
+                    HouseFIASCode = (int)adressInfo["houseFIASCode"]
+                }
+            };
         }
 
-        public string ChangeAdressByID(int id, int houseFIASCode, int idLocation, string streetFIASCode, string cityFIASCode, string regionFIASCode)
+        public AdressModel ChangeAdressByID(int id, AdressModel newModel)
         {
-            return "UPDATE Adresses\n"
-                 + $"SET idLocation = {idLocation},\n"
-                 + $"streetFIASCode = N'{streetFIASCode}',\n"
-                 + $"cityFIASCode = N'{cityFIASCode}',\n"
-                 + $"regionFIASCode = N'{regionFIASCode}'\n"
-                 + $"houseFIASCode = {houseFIASCode}\n"
-                 + $"WHERE id = {id}";
+            sqlDriver.ExecNonQuery("UPDATE Adresses\n"
+                 + $"SET idLocation = {newModel.LocationID},\n"
+                 + $"streetFIASCode = N'{newModel.fullFIASCode.StreetFIASCode}',\n"
+                 + $"cityFIASCode = N'{newModel.fullFIASCode.CityFIASCode}',\n"
+                 + $"regionFIASCode = N'{newModel.fullFIASCode.RegionFIASCode}',\n"
+                 + $"houseFIASCode = {newModel.fullFIASCode.HouseFIASCode}\n"
+                 + $"WHERE id = {id}");
 
+            return newModel;
         }
     }
 }

@@ -1,0 +1,12 @@
+D:\GIT\MCService\MCService.Database\bin\Debug\net7.0\MCService.Database.deps.json
+D:\GIT\MCService\MCService.Database\bin\Debug\net7.0\MCService.Database.dll
+D:\GIT\MCService\MCService.Database\bin\Debug\net7.0\MCService.Database.pdb
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.csproj.AssemblyReference.cache
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.AssemblyInfoInputs.cache
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.AssemblyInfo.cs
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.csproj.CoreCompileInputs.cache
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.dll
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\refint\MCService.Database.dll
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\MCService.Database.pdb
+D:\GIT\MCService\MCService.Database\obj\Debug\net7.0\ref\MCService.Database.dll

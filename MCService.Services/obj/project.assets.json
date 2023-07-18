@@ -790,6 +790,29 @@
             "rid": "win"
           }
         }
+      },
+      "MCService.Database/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.2.0-preview2.23159.1"
+        },
+        "compile": {
+          "bin/placeholder/MCService.Database.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MCService.Database.dll": {}
+        }
+      },
+      "MCService.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/MCService.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MCService.Models.dll": {}
+        }
       }
     }
   },
@@ -2217,10 +2240,22 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "MCService.Database/1.0.0": {
+      "type": "project",
+      "path": "../MCService.Database/MCService.Database.csproj",
+      "msbuildProject": "../MCService.Database/MCService.Database.csproj"
+    },
+    "MCService.Models/1.0.0": {
+      "type": "project",
+      "path": "../MCService.Models/MCService.Models.csproj",
+      "msbuildProject": "../MCService.Models/MCService.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "MCService.Database >= 1.0.0",
+      "MCService.Models >= 1.0.0",
       "Microsoft.Data.SqlClient >= 5.2.0-preview2.23159.1",
       "Microsoft.Extensions.Configuration >= 8.0.0-preview.6.23329.7"
     ]
@@ -2256,7 +2291,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\GIT\\MCService\\MCService.Database\\MCService.Database.csproj": {
+              "projectPath": "D:\\GIT\\MCService\\MCService.Database\\MCService.Database.csproj"
+            },
+            "D:\\GIT\\MCService\\MCService.Models\\MCService.Models.csproj": {
+              "projectPath": "D:\\GIT\\MCService\\MCService.Models\\MCService.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

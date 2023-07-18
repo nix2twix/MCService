@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "MCService.Services/1.0.0": {
         "dependencies": {
+          "MCService.Database": "1.0.0",
+          "MCService.Models": "1.0.0",
           "Microsoft.Data.SqlClient": "5.2.0-preview2.23159.1",
           "Microsoft.Extensions.Configuration": "8.0.0-preview.6.23329.7"
         },
@@ -442,6 +444,19 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "MCService.Database/1.0.0": {
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.2.0-preview2.23159.1"
+        },
+        "runtime": {
+          "MCService.Database.dll": {}
+        }
+      },
+      "MCService.Models/1.0.0": {
+        "runtime": {
+          "MCService.Models.dll": {}
+        }
       }
     }
   },
@@ -758,6 +773,16 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "MCService.Database/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MCService.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1235,10 +1235,35 @@
           "lib/net40/WebActivatorEx.dll": {}
         }
       },
+      "MCService.Database/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.2.0-preview2.23159.1"
+        },
+        "compile": {
+          "bin/placeholder/MCService.Database.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MCService.Database.dll": {}
+        }
+      },
+      "MCService.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/MCService.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MCService.Models.dll": {}
+        }
+      },
       "MCService.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "MCService.Database": "1.0.0",
+          "MCService.Models": "1.0.0",
           "Microsoft.Data.SqlClient": "5.2.0-preview2.23159.1",
           "Microsoft.Extensions.Configuration": "8.0.0-preview.6.23329.7"
         },
@@ -3498,6 +3523,16 @@
         "webactivatorex.nuspec"
       ]
     },
+    "MCService.Database/1.0.0": {
+      "type": "project",
+      "path": "../MCService.Database/MCService.Database.csproj",
+      "msbuildProject": "../MCService.Database/MCService.Database.csproj"
+    },
+    "MCService.Models/1.0.0": {
+      "type": "project",
+      "path": "../MCService.Models/MCService.Models.csproj",
+      "msbuildProject": "../MCService.Models/MCService.Models.csproj"
+    },
     "MCService.Services/1.0.0": {
       "type": "project",
       "path": "../MCService.Services/MCService.Services.csproj",
@@ -3507,6 +3542,8 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Json.Net >= 1.0.33",
+      "MCService.Database >= 1.0.0",
+      "MCService.Models >= 1.0.0",
       "MCService.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
       "Microsoft.Data.SqlClient >= 5.2.0-preview2.23159.1",
@@ -3548,6 +3585,12 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "D:\\GIT\\MCService\\MCService.Database\\MCService.Database.csproj": {
+              "projectPath": "D:\\GIT\\MCService\\MCService.Database\\MCService.Database.csproj"
+            },
+            "D:\\GIT\\MCService\\MCService.Models\\MCService.Models.csproj": {
+              "projectPath": "D:\\GIT\\MCService\\MCService.Models\\MCService.Models.csproj"
+            },
             "D:\\GIT\\MCService\\MCService.Services\\MCService.Services.csproj": {
               "projectPath": "D:\\GIT\\MCService\\MCService.Services\\MCService.Services.csproj"
             }

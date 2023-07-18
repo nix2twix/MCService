@@ -1,42 +1,99 @@
-﻿namespace MCService.Services
+﻿using MCService.Models;
+using MCService.Database;
+
+namespace MCService.Services
 {
-    //Сервис для работы со списком цен
     public class PriceService 
     {
-        public string AddNewPrice(int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
+        private readonly SqlDriver sqlDriver;
+        public PriceService(SqlDriver sqlDriver = null)
         {
-            return "INSERT INTO Prices (price, ifPriceOnRequest, idLocation, idService, name) "
-                + $"VALUES ('{price}', '{isPriceOnRequest}', '{locationID}', "
-                + $"'{serviceID}' + N'{name}')";
+            this.sqlDriver = sqlDriver;
+            this.sqlDriver.Open();
+        }
+
+        ~PriceService() 
+        { 
+            sqlDriver.Close();
+        }
+        public string AddNewPrice(PriceModel newModel)
+        {
+            int isRequest = Convert.ToInt32(newModel.isPriceOnRequest);
+
+            return sqlDriver.ExecNonQuery("INSERT INTO Prices (price, ifPriceOnRequest, idLocation, idService, name) "
+                + $"VALUES ({newModel.Price}, {isRequest}, {newModel.LocationID}, "
+                + $"{newModel.ServiceID}, N'{newModel.Name}')")
+                + " adresses was added successfully!";
         }
 
         public string DeletePriceByID(int id)
         {
-            return $"DELETE FROM Prices WHERE id={id}";
+
+            return sqlDriver.ExecNonQuery($"DELETE FROM Prices WHERE id = {id}")
+                + " adresses was deleted successfully!";
         }
 
-        public string ChangePriceByID(int id, int price, bool isPriceOnRequest, int locationID, int serviceID, string name)
+        public PriceModel ChangePriceByID(int id, PriceModel newModel)
         {
-            return "UPDATE Prices\n"
-                 + $"SET price = {price},\nifPriceOnRequest = {isPriceOnRequest},"
-                 + $"\nidLocation = {locationID},\n"
-                 + $"idService = {serviceID},\n"
-                 + $"name = N'{name}'\n"
-                 + $"WHERE id={id}";
+            sqlDriver.ExecNonQuery("UPDATE Prices\n"
+                 + $"SET price = {newModel.Price},\nifPriceOnRequest = {newModel.isPriceOnRequest},"
+                 + $"\nidLocation = {newModel.LocationID},\n"
+                 + $"idService = {newModel.ServiceID},\n"
+                 + $"name = N'{newModel.Name}'\n"
+                 + $"WHERE id={id}");
+
+            return newModel;
         }
 
-        public string GetPriceByID(int id)
+        public PriceModel GetPriceByID(int id)
         {
-            return "SELECT price, ifPriceOnRequest, idLocation, idService "
-                + $"FROM Prices WHERE id = {id}";
+            var priceInfo = sqlDriver.ExecReader("SELECT price, ifPriceOnRequest, idLocation, idService "
+                + $"FROM Prices WHERE id = {id}");
+            priceInfo.Read();
+
+            int serviceId = (int)priceInfo[3];
+
+            var model = new PriceModel
+            {
+                Name = string.Empty,
+                Price = (int)priceInfo[0],
+                isPriceOnRequest = (bool)priceInfo[1],
+                LocationID = (int)priceInfo[2],
+                ServiceID = serviceId
+            };
+
+            sqlDriver.Close();
+            sqlDriver.Open();
+
+            var serviceInfo = sqlDriver.ExecReader($"SELECT name, minCount, maxCount, measure, idMC "
+                + $"FROM Services WHERE id = {serviceId}");
+            serviceInfo.Read();
+
+            model.Name = serviceInfo["name"].ToString();
+
+            return model;
         }
 
-        public string GetPriceByCode(int codeFias, int idService) 
+        public PriceModel GetPriceByCode(int codeFias, int idService) 
         {
 
-            return "SELECT price FROM Prices\n"
+            var priceInfo = sqlDriver.ExecReader("SELECT price FROM Prices\n"
                 + $"WHERE idLocation = {codeFias} "
-                + $"AND idService = {idService}";
+                + $"AND idService = {idService}");
+            priceInfo.Read();
+
+            var serviceInfo = sqlDriver.ExecReader($"SELECT *"
+                 + $"FROM Services WHERE id = {idService}");
+            serviceInfo.Read();
+
+            return new PriceModel
+            {
+                Name = serviceInfo["name"].ToString(),
+                Price = (int)priceInfo[0],
+                isPriceOnRequest = (bool)priceInfo[1],
+                LocationID = (int)priceInfo[2],
+                ServiceID = idService
+            };
         }
     }
 }

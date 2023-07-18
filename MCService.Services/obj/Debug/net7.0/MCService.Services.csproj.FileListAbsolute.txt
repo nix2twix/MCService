@@ -10,3 +10,8 @@ D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.dll
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\refint\MCService.Services.dll
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.pdb
 D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\ref\MCService.Services.dll
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Database.dll
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Models.dll
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Database.pdb
+D:\GIT\MCService\MCService.Services\bin\Debug\net7.0\MCService.Models.pdb
+D:\GIT\MCService\MCService.Services\obj\Debug\net7.0\MCService.Services.csproj.CopyComplete

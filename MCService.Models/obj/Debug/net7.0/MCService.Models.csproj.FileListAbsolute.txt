@@ -1,0 +1,12 @@
+D:\GIT\MCService\MCService.Models\bin\Debug\net7.0\MCService.Models.deps.json
+D:\GIT\MCService\MCService.Models\bin\Debug\net7.0\MCService.Models.dll
+D:\GIT\MCService\MCService.Models\bin\Debug\net7.0\MCService.Models.pdb
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.csproj.AssemblyReference.cache
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.AssemblyInfoInputs.cache
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.AssemblyInfo.cs
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.csproj.CoreCompileInputs.cache
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.dll
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\refint\MCService.Models.dll
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\MCService.Models.pdb
+D:\GIT\MCService\MCService.Models\obj\Debug\net7.0\ref\MCService.Models.dll

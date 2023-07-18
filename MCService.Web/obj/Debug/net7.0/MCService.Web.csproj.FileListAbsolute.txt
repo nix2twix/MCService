@@ -169,3 +169,7 @@ D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\Microsoft.Extensions.DependencyI
 D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
 D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\MCService.Database.dll
+D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\MCService.Models.dll
+D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\MCService.Database.pdb
+D:\GIT\MCService\MCService.Web\bin\Debug\net7.0\MCService.Models.pdb

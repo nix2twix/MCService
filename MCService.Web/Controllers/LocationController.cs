@@ -1,5 +1,5 @@
 ﻿using MCService.Services;
-using MCService.Web.Models;
+using MCService.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,50 +9,35 @@ namespace MCService.Web.Controllers
     [ApiController]
     public class LocationController : ControllerBase
     {
-        SqlDriver sqlDriver = new SqlDriver();
-        LocationService locationService = new LocationService();
+        private readonly LocationService locationService;
+        public LocationController(LocationService locationService = null)
+        {
+            this.locationService = locationService;
+        }
 
         [HttpGet("{id:int}", Name = "GetLocationByID")]
         public ActionResult GetLocationByID(int id)
         {
-            sqlDriver.Open();
-            var locationInfo = sqlDriver.ExecReader(locationService.GetLocationByID(id));
-            locationInfo.Read();
-
-            return Ok(new LocationModel
-            { 
-                Name = locationInfo[0].ToString(),
-                CompanyID = (int)locationInfo[1]
-            });
+            return Ok(locationService.GetLocationByID(id));
         }
 
         [HttpPost(Name = "AddNewLocation")]
-        public ActionResult AddNewLocation(string name, int idMC)
+        public ActionResult AddNewLocation(LocationModel model)
         {
-            sqlDriver.Open();
-
-            return Ok(sqlDriver.ExecNonQuery(
-                locationService.AddNewLocation(name, idMC))
-                + " locations was added successfully!");
+            return Ok(locationService.AddNewLocation(model));
         }
 
         [HttpPut(Name = "UpdateLocationByID")]
-        public ActionResult UpdateLocationByID(int id, string name, int idMC)
+        public ActionResult UpdateLocationByID(int id, LocationModel newModel)
         {
-            sqlDriver.Open();
 
-            return Ok(sqlDriver.ExecNonQuery(locationService.ChangeLocationByID
-                (id, name, idMC))
-                + " locations was updated successfully!");
+            return Ok(locationService.ChangeLocationByID(id, newModel));
         }
 
         [HttpDelete("{id:int}", Name = "DeleteLocationByID")]
         public ActionResult DeleteLocationByID(int id)
         {
-            sqlDriver.Open();
-
-            return Ok(sqlDriver.ExecNonQuery(locationService.DeleteLocationByID(id))
-                + " locations was deleted successfully!");
+            return Ok(locationService.DeleteLocationByID(id));
         }
     }
 }

@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MCService.Database\MCService.Database.csproj" />
+    <ProjectReference Include="..\MCService.Models\MCService.Models.csproj" />
     <ProjectReference Include="..\MCService.Services\MCService.Services.csproj" />
   </ItemGroup>
 

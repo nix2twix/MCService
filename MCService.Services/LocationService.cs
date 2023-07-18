@@ -1,24 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MCService.Models;
+using MCService.Database;
 
 namespace MCService.Services
 {
     public class LocationService
     {
-        public string AddNewLocation(string name, int idMC)
+        private readonly SqlDriver sqlDriver;
+        public LocationService(SqlDriver sqlDriver = null)
         {
-
-            return "INSERT INTO Locations (name, idMC) "
-                + $"VALUES (N'{name}', {idMC})";
+            this.sqlDriver = sqlDriver;
+            this.sqlDriver.Open();
+        }
+        ~LocationService() 
+        { 
+            sqlDriver.Close(); 
         }
 
-        public string GetLocationByID(int id)
+        public LocationModel AddNewLocation(LocationModel model)
         {
-            return $"SELECT name, idMC FROM Locations WHERE id = {id}";
+            sqlDriver.ExecNonQuery("INSERT INTO Locations (name, idMC)"+ 
+                $"VALUES (N'{model.Name}', {model.CompanyID})");
+            return model;
+        }
+
+        public LocationModel GetLocationByID(int id)
+        {
+            var locationInfo = sqlDriver.ExecReader($"SELECT name, idMC FROM Locations WHERE id = {id}");
+            locationInfo.Read();
+
+            return(new LocationModel
+            {
+                Name = locationInfo[0].ToString(),
+                CompanyID = (int)locationInfo[1]
+            });
         }
 
         public string GetMCNameByLocationID(int id)
@@ -28,16 +42,17 @@ namespace MCService.Services
         }
         public string DeleteLocationByID(int id)
         {
-            return $"DELETE FROM Locations WHERE id={id}";
+            return sqlDriver.ExecNonQuery($"DELETE FROM Locations WHERE id = {id}")
+                + " adresses was deleted successfully!";
         }
 
-        public string ChangeLocationByID(int id, string name, int idMC)
+        public LocationModel ChangeLocationByID(int id, LocationModel newModel)
         {
-            return "UPDATE Locations\n"
-                 + $"SET name = {name},\n"
-                 + $"idMC = {idMC}\n"
-                 + $"WHERE id={id}";
-
+            sqlDriver.ExecNonQuery("UPDATE Locations\n"
+                 + $"SET name = N'{newModel.Name}',\n"
+                 + $"idMC = {newModel.CompanyID}\n"
+                 + $"WHERE id={id}");
+            return newModel;
         }
     }
 }
